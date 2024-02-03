@@ -1,0 +1,557 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&display=swap");
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px var(--color-54d);
+  border-radius: 3px;
+  background-color: var(--bg-color);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  background-color: var(--bg-color);
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  width: 5px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--text-color);
+}
+
+:root {
+  --bg-color: #e0e0e0;
+  --text-color: #4a5267;
+  --card-border: #cdd2e0;
+  --color-222: #b5b5bb;
+  --color-444: #ffffff;
+  --color-f73: #ffffff73;
+  --color-54d: #5e68794d;
+  --click-color: #006bba;
+  --click-color-dark: #006bba;
+}
+
+.dark {
+  --bg-color: #242730;
+  --text-color: #fcfdfb;
+  --card-border: #33353a;
+  --color-222: #222930;
+  --color-444: #18181f;
+  --color-f73: #07070873;
+  --color-54d: #272e334d;
+  --click-color: #00ffa1;
+  --click-color-dark: #00ffa1;
+}
+
+* {
+  font-family: "Nunito Sans", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full {
+  width: 860px;
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  padding: 30px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  border-radius: 15px;
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222),
+    inset 3px 3px 6px var(--color-444), inset -3px -3px 6px var(--color-222);
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+#bodyblur {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  display: none;
+  z-index: 1000;
+  transition: all 2s ease-in-out;
+}
+
+#bodyblur .full {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: fit-content;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+#bodyblur #equationDetail,
+#bodyblur #popupControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#bodyblur #getArrayIndex,
+#bodyblur #finalEquation,
+#bodyblur #prevOnFull,
+#bodyblur #closepopup,
+#bodyblur #textCopy,
+#bodyblur #clearFull,
+#bodyblur #fullHistory,
+#bodyblur #nextOnFull {
+  margin-top: 8px;
+  font-size: 35px;
+  line-height: 10px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  overflow: auto;
+  text-align: left;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 80px;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: none;
+  padding: 0 20px 0 20px;
+  text-shadow: 3px 3px 5px var(--color-54d), -4px -4px 6px var(--color-444);
+  box-shadow: -5px -5px 9px var(--color-f73), 5px 5px 9px var(--color-54d);
+}
+
+#bodyblur #getArrayIndex::after,
+#bodyblur #finalEquation::after,
+#bodyblur #prevOnFull::after,
+#bodyblur #textCopy::after,
+#bodyblur #clearFull::after,
+#bodyblur #fullHistory::after,
+#bodyblur #closePopup::after,
+#bodyblur #nextOnFull::after {
+  content: "";
+  position: absolute;
+  height: 70px;
+  width: calc(100% - 10px);
+  background-color: transparent;
+  border-radius: 12px;
+  box-shadow: inset -5px -5px 9px var(--color-f73),
+    inset 5px 5px 9px var(--color-54d);
+}
+
+#bodyblur #prevOnFull,
+#bodyblur #closePopup,
+#bodyblur #textCopy,
+#bodyblur #clearFull,
+#bodyblur #fullHistory,
+#bodyblur #nextOnFull {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  padding: 0 10px 0 10px;
+  font-size: 25px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+#bodyblur #prevOnFull::after,
+#bodyblur #closePopup::after,
+#bodyblur #textCopy::after,
+#bodyblur #clearFull::after,
+#bodyblur #fullHistory::after,
+#bodyblur #nextOnFull::after {
+  border-radius: 50%;
+  height: 40px;
+  width: calc(100% - 10px);
+}
+
+#bodyblur #finalEquation {
+  padding: 0 30px 0 30px;
+}
+
+#bodyblur #getArrayIndex {
+  min-width: 80px;
+  min-height: 80px;
+  padding: 0;
+}
+
+#bodyblur #getArrayIndex::after {
+  min-width: 70px;
+  min-height: 70px;
+}
+
+#bodyblur #finalEquation .closediv {
+  border-radius: 50px;
+  border: 4px solid #f3f4f7;
+  display: flex;
+  align-items: center;
+  justify-content: flex;
+  background: #0074d9;
+  margin-right: 4px;
+  width: 30px;
+  height: 30px;
+  box-shadow: 5px 5px 15px rgba(55, 84, 170, 0.15),
+    -5px -5px 20px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, 0),
+    inset 5px 5px 15px rgba(55, 84, 170, 0.15),
+    0px 0px 4px rgba(255, 255, 255, 0.2) !important;
+}
+
+#bodyblur #finalEquation .closediv .popupclose {
+  box-shadow: none;
+  background: transparent !important;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex;
+  font-size: 20px;
+  text-align: center;
+  color: #ededed;
+  text-shadow: 5px 5px 15px rgba(55, 84, 170, 0.15),
+    -5px -5px 20px rgba(255, 255, 255, 1),
+    inset 0px 0px 4px rgba(255, 255, 255, 0),
+    inset 5px 5px 15px rgba(55, 84, 170, 0.15),
+    0px 0px 4px rgba(255, 255, 255, 0.2) !important;
+}
+
+.arrowButtons .material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 28;
+}
+
+.arrowButtons:active,
+.arrowButtons:active span {
+  color: var(--click-color);
+}
+
+#bodyblur a {
+  text-decoration: none;
+}
+
+#display {
+  height: 60px;
+  width: 340px;
+  font-size: 30px;
+  padding-left: 13px;
+  padding-right: 13px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: right;
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222),
+    inset 3px 3px 6px var(--color-222), inset -3px -3px 6px var(--color-444);
+  letter-spacing: 2px;
+}
+
+.memoDisplay {
+  height: 40px;
+  width: 350px;
+  font-size: 30px;
+  padding: 13px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: right;
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222),
+    inset 3px 3px 6px var(--color-222), inset -3px -3px 6px var(--color-444);
+  letter-spacing: 2px;
+}
+
+.memoDisplay:active {
+  text-shadow: none;
+}
+
+.operator {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+#displayHistory {
+  margin-top: 8px;
+  height: 60px;
+  width: 215px;
+  font-size: 24px;
+  padding: 0px 5px 0px 10px;
+  line-height: 55px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  overflow: auto;
+  cursor: pointer;
+  border: 1px solid var(--card-border);
+  text-align: left;
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222),
+    inset 3px 3px 6px var(--color-222), inset -3px -3px 6px var(--color-444);
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+#prevButton,
+#nextButton {
+  width: 40px;
+  height: 60px;
+  font-size: 20px;
+}
+
+#equal {
+  height: 96px;
+  margin-bottom: -264px;
+}
+
+.clear {
+  height: 60px;
+  width: 70px;
+  font-size: 30px;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  border: 1px solid var(--card-border);
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222);
+  font-weight: 700;
+}
+
+.clear:active {
+  border: none;
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222),
+    inset 3px 3px 6px var(--color-222), inset -3px -3px 6px var(--color-444);
+  color: var(--click-color);
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+input,
+.arrowButtons,
+.dark-light {
+  width: 70px;
+  height: 40px;
+  margin: 8px;
+  border-radius: 5px;
+  font-size: 20px;
+  border: 1px solid var(--card-border);
+  text-overflow: ellipsis;
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222);
+}
+
+input:active,
+.arrowButtons:active,
+.dark-light:active {
+  border: none;
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222),
+    inset 3px 3px 6px var(--color-222), inset -3px -3px 6px var(--color-444);
+  color: var(--click-color);
+}
+
+.arrowButtons {
+  line-height: 100%;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+#backspace {
+  width: 70px;
+  height: 40px;
+  margin-top: 6px;
+  margin-bottom: -20px;
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  font-size: 20px;
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222);
+  font-weight: 700;
+}
+
+#backspace:active {
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222),
+    inset 3px 3px 6px var(--color-222), inset -3px -3px 6px var(--color-444);
+  color: var(--click-color);
+}
+
+.bottom {
+  width: 78px;
+  font-weight: 700;
+}
+
+#hist {
+  margin-top: 7px;
+  font-weight: 800;
+  height: 60px;
+}
+
+#myList {
+  margin-top: 15px;
+  height: 45px;
+  width: 333px;
+  font-size: 30px;
+  padding-top: 4px;
+  padding-left: 13px;
+  padding-right: 13px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: left;
+  box-shadow: -5px -5px 15px var(--color-444), 3px 3px 9px var(--color-222),
+    inset 3px 3px 6px var(--color-222), inset -3px -3px 6px var(--color-444);
+  letter-spacing: 2px;
+}
+
+.clearhis,
+.bold {
+  font-weight: 800;
+}
+
+.small {
+  font-size: large;
+  font-weight: 700;
+}
+
+.highlight {
+  background-color: yellow;
+}
+
+.prev {
+  background-image: url("SVGs/chevron-left.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  /* Adjust the position as needed */
+  padding-right: 20px;
+  /* Adjust the padding to accommodate the SVG image */
+}
+
+.toogle-container {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: -5px -5px 9px var(--color-f73), 5px 5px 9px var(--color-54d);
+}
+
+.toogle-container::after {
+  content: "";
+  position: absolute;
+  height: 36px;
+  width: 36px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 9px var(--color-f73),
+    inset 5px 5px 9px var(--color-54d);
+}
+
+#toggle-btn {
+  width: 36px !important;
+  height: 36px;
+  font-size: 14px;
+  z-index: -1000;
+  text-align: center;
+  background: transparent !important;
+  border: none;
+  padding: 1px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#toggle-btn span {
+  height: 26px;
+  width: 26px;
+  padding: 5px;
+  border-radius: 50%;
+  background: transparent !important;
+}
+
+#toggle-btn:active span {
+  color: var(--click-color);
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+#getArrayIndex {
+  font-weight: 600;
+}
+
+.histiryShower {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heartcontainer {
+  position: absolute;
+  /* Set dimensions for the inner div */
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+  /* Center the div */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeAnimation {
+  animation: fadeInOut 1s;
+}
+
+
+.item-div {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px;
+  background-color: #f9f9f9;
+}
